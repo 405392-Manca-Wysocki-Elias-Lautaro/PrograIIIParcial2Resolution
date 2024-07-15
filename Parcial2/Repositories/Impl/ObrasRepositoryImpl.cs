@@ -13,7 +13,7 @@ public class ObrasRepositoryImpl : IObrasRepository
         _contextDb = contextDb;
     }
 
-    public async Task<List<Obra>> getAllObras()
+    public async Task<List<Obra>> GetAllObras()
     {
         List<Obra> obra = await _contextDb.Obra.ToListAsync();
         var v = "";
@@ -26,7 +26,7 @@ public class ObrasRepositoryImpl : IObrasRepository
         throw new Exception("Obra not found");
     }
 
-    public async Task<TiposObra> getTipoObraById(Guid id)
+    public async Task<TiposObra> GetTipoObraById(Guid id)
     {
         var tipoObra = await _contextDb.TiposObras.FirstOrDefaultAsync(to => to.Id == id);
 
@@ -36,5 +36,29 @@ public class ObrasRepositoryImpl : IObrasRepository
         }
 
         throw new Exception("Tipo Obra not found");
+    }
+
+    public async Task<Obra> GetObraById(Guid id)
+    {
+        var obra = await _contextDb.Obra.FirstOrDefaultAsync(o => o.Id == id);
+
+        if (obra != null)
+        {
+            return obra;
+        }
+
+        throw new Exception("Obra not found");
+
+    }
+
+    public async Task<Albanile> GetAlbanilById(Guid id)
+    {
+        var albanil = await _contextDb.Albaniles.FirstOrDefaultAsync(a => a.Id == id);
+
+        if (albanil != null)
+        {
+            return albanil;
+        }
+        throw new Exception("Albañil not found");
     }
 }

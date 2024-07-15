@@ -5,5 +5,6 @@ namespace Parcial2.Services;
 
 public interface IObrasService
 {
-    Task<List<ObraDto>> getAll();
+    Task<List<ObraDto>> GetAllObras();
+    Task<AlbanilesXObra> PostAlbanilXObra(AlbanilXObraDto albanilXObraDto);
 }

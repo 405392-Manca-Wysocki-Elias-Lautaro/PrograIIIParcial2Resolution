@@ -4612,19 +4612,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Erika\\.nuget\\packages\\": {}
+    "C:\\Users\\Elias\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Erika\\Documents\\TUP\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\Parcial2.csproj",
+      "projectUniqueName": "C:\\Users\\Elias\\Documents\\TUP\\Cuatrimestre 3\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\Parcial2.csproj",
       "projectName": "Parcial2",
-      "projectPath": "C:\\Users\\Erika\\Documents\\TUP\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\Parcial2.csproj",
-      "packagesPath": "C:\\Users\\Erika\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Erika\\Documents\\TUP\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\obj\\",
+      "projectPath": "C:\\Users\\Elias\\Documents\\TUP\\Cuatrimestre 3\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\Parcial2.csproj",
+      "packagesPath": "C:\\Users\\Elias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elias\\Documents\\TUP\\Cuatrimestre 3\\Programación III\\Parcial 2\\2do-parcial-w2-405392-Manca-Wysocki-Elias-Lautaro\\Parcial2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Erika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Elias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4710,7 +4715,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

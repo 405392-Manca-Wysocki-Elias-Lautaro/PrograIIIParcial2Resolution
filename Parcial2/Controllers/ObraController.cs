@@ -17,7 +17,7 @@ public class ObraController : ControllerBase
     [HttpGet("/GetObras")]
     public async Task<IActionResult> GetAll()
     {
-        var obras = _obrasService.getAll();
+        var obras = await _obrasService.GetAllObras();
         return Ok(obras);
     }
 }

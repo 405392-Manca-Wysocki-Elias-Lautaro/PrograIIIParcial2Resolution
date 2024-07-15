@@ -13,11 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<ContextDb>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("ConectionDatabase"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionDatabaseLocal"));
 
 });
-
-// builder.Services.AddScoped<ContextDb>(provider => provider.GetService<ContextDb>());
 
 builder.Services.AddScoped<IObrasRepository, ObrasRepositoryImpl>();
 builder.Services.AddScoped<IObrasService, ObrasServiceImpl>();

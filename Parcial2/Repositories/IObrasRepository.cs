@@ -4,6 +4,9 @@ namespace Parcial2.Repositories;
 
 public interface IObrasRepository
 {
-    Task<List<Obra>> getAllObras();
-    Task<TiposObra> getTipoObraById(Guid id);
+    Task<List<Obra>> GetAllObras();
+    Task<TiposObra> GetTipoObraById(Guid id);
+    Task<Obra> GetObraById(Guid id);
+    Task<Albanile> GetAlbanilById(Guid id);
+    Task<AlbanilesXObra> GetAlbanilesXObraByObraId(Guid obraId);
 }

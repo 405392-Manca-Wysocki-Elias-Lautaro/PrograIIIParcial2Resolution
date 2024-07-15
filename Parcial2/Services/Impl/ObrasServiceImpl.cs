@@ -17,9 +17,9 @@ public class ObrasServiceImpl : IObrasService
 
     }
     
-    public async Task<List<ObraDto>> getAll()
+    public async Task<List<ObraDto>> GetAllObras()
     {
-        var obras = await _obrasRepository.getAllObras();
+        var obras = await _obrasRepository.GetAllObras();
 
         if (obras != null)
         {
@@ -30,7 +30,7 @@ public class ObrasServiceImpl : IObrasService
                 ObraDto activeObra = new ObraDto();
                 activeObra.Nombre = obra.Nombre;
                 activeObra.DatosVarios = obra.DatosVarios;
-                var tipoObraTask = _obrasRepository.getTipoObraById(obra.IdTipoObra);
+                var tipoObraTask = _obrasRepository.GetTipoObraById(obra.IdTipoObra);
                 TiposObra to = _mapper.Map<TiposObra>(tipoObraTask);
                 activeObra.TipoObra = to.Nombre;
                 activeObra.CantAlb = obra.AlbanilesXObras.Count;
@@ -40,5 +40,11 @@ public class ObrasServiceImpl : IObrasService
         }
 
         throw new Exception("Obra not found");
+    }
+
+    public Task<AlbanilesXObra> PostAlbanilXObra(AlbanilXObraDto albanilXObraDto)
+    {
+        
+        
     }
 }
