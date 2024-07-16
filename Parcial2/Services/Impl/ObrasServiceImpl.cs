@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Parcial2.ApiResponse;
 using Parcial2.DTOs;
 using Parcial2.Models;
 using Parcial2.Repositories;
@@ -42,9 +43,23 @@ public class ObrasServiceImpl : IObrasService
         throw new Exception("Obra not found");
     }
 
-    public Task<AlbanilesXObra> PostAlbanilXObra(AlbanilXObraDto albanilXObraDto)
+    public async Task<ApiResponse<AlbanilesXObra>> PostAlbanilXObra(AlbanilXObraDto albanilXObraDto)
     {
-        
+        var albanilesXObra = await _obrasRepository.GetAlbanilesXObraByObraId(albanilXObraDto.Obra.Id);
+
+        return null;
+    }
+
+    public async Task<List<AlbanilesXObra>> GetAllAXO()
+    {
+        var albanilesXObra = await _obrasRepository.GetAll();
+
+        if (albanilesXObra != null)
+        {
+            return albanilesXObra;
+        }
+
+        throw new Exception("Albañiles not found");
         
     }
 }

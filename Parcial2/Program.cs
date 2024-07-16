@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<ContextDb>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionDatabaseLocal"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionDatabaseRemote"));
 
 });
 

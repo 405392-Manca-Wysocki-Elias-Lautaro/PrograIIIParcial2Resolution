@@ -61,4 +61,30 @@ public class ObrasRepositoryImpl : IObrasRepository
         }
         throw new Exception("Albañil not found");
     }
+
+    public async Task<List<AlbanilesXObra>> GetAlbanilesXObraByObraId(Guid obraId)
+    {
+        var albanilesXObra = await _contextDb.AlbanilesXObras
+            .FromSql($"SELECT * FROM [AlbanilesXObra] WHERE IdObra = {obraId}")
+            .ToListAsync();
+
+        if (albanilesXObra != null)
+        {
+            return albanilesXObra;
+        }
+
+        throw new Exception("No masons were found for this job.");
+    }
+
+    public async Task<List<AlbanilesXObra>> GetAll()
+    {
+        var albanilesXObra = await _contextDb.AlbanilesXObras.ToListAsync();
+
+        if (albanilesXObra != null)
+        {
+            return albanilesXObra;
+        }
+
+        throw new Exception("Albaniles not found ");
+    }
 }

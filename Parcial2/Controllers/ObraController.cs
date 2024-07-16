@@ -13,11 +13,19 @@ public class ObraController : ControllerBase
     {
         _obrasService = obrasService;
     }
-    
+
     [HttpGet("/GetObras")]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAllObras()
     {
         var obras = await _obrasService.GetAllObras();
         return Ok(obras);
     }
+
+    [HttpGet("/GetAllAOX")]
+    public async Task<IActionResult> GetAllAOX()
+    {
+        var albanilesXObras = await _obrasService.GetAllAXO();
+        return Ok(albanilesXObras);
+    }
+
 }

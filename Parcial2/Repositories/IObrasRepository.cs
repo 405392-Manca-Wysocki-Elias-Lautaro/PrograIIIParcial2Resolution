@@ -8,5 +8,7 @@ public interface IObrasRepository
     Task<TiposObra> GetTipoObraById(Guid id);
     Task<Obra> GetObraById(Guid id);
     Task<Albanile> GetAlbanilById(Guid id);
-    Task<AlbanilesXObra> GetAlbanilesXObraByObraId(Guid obraId);
+    Task<List<AlbanilesXObra>> GetAlbanilesXObraByObraId(Guid obraId);
+    Task<List<AlbanilesXObra>> GetAll();
+
 }
