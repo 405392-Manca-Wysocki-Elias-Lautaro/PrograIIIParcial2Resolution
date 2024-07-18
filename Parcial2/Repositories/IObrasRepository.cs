@@ -4,11 +4,14 @@ namespace Parcial2.Repositories;
 
 public interface IObrasRepository
 {
-    Task<List<Obra>> GetAllObras();
+    Task<List<Obra>> GetObras();
     Task<TiposObra> GetTipoObraById(Guid id);
     Task<Obra> GetObraById(Guid id);
     Task<Albanile> GetAlbanilById(Guid id);
-    Task<List<AlbanilesXObra>> GetAlbanilesXObraByObraId(Guid obraId);
-    Task<List<AlbanilesXObra>> GetAll();
-
+    Task<AlbanilesXObra> GetByIdAlbanilXObra(Guid albanilId,  Guid obraId);
+    Task<AlbanilesXObra> PostAlbanilXObra(AlbanilesXObra albanilXObra);
+    Task<List<AlbanilesXObra?>> GetAlbanilesXObra(Guid obraId);
+    Task<Albanile> PostAlbanil(Albanile albanile);
+    Task<Albanile> GetAlbanilByDni(String dni);
+    Task<List<Albanile>> GetAlbaniles(Guid id);
 }

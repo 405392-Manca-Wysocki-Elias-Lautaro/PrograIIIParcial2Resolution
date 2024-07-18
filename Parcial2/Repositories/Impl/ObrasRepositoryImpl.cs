@@ -13,10 +13,9 @@ public class ObrasRepositoryImpl : IObrasRepository
         _contextDb = contextDb;
     }
 
-    public async Task<List<Obra>> GetAllObras()
+    public async Task<List<Obra>> GetObras()
     {
         List<Obra> obra = await _contextDb.Obra.ToListAsync();
-        var v = "";
 
         if (obra != null)
         {
@@ -26,65 +25,68 @@ public class ObrasRepositoryImpl : IObrasRepository
         throw new Exception("Obra not found");
     }
 
-    public async Task<TiposObra> GetTipoObraById(Guid id)
+    public  Task<TiposObra?> GetTipoObraById(Guid id)
     {
-        var tipoObra = await _contextDb.TiposObras.FirstOrDefaultAsync(to => to.Id == id);
-
-        if (tipoObra != null)
-        {
-            return tipoObra;
-        }
-
-        throw new Exception("Tipo Obra not found");
+        var tipoObra =  _contextDb.TiposObras.Find(id);
+        return Task.FromResult(tipoObra);
+            
     }
 
-    public async Task<Obra> GetObraById(Guid id)
+    public Task<Obra?> GetObraById(Guid id)
     {
-        var obra = await _contextDb.Obra.FirstOrDefaultAsync(o => o.Id == id);
-
-        if (obra != null)
-        {
-            return obra;
-        }
-
-        throw new Exception("Obra not found");
+        var obra =  _contextDb.Obra.Find(id);
+        return Task.FromResult(obra);
 
     }
 
-    public async Task<Albanile> GetAlbanilById(Guid id)
+    public Task<Albanile?> GetAlbanilById(Guid id)
     {
-        var albanil = await _contextDb.Albaniles.FirstOrDefaultAsync(a => a.Id == id);
+        var albanil = _contextDb.Albanile.Find(id);
+        return Task.FromResult(albanil);
+    }
+    
+    
 
-        if (albanil != null)
-        {
-            return albanil;
-        }
-        throw new Exception("Albañil not found");
+    public async Task<AlbanilesXObra> GetByIdAlbanilXObra(Guid albanilId, Guid obraId)
+    {
+        return await _contextDb.AlbanilesXObra
+            .FirstOrDefaultAsync(a => a.IdAlbanil == albanilId && a.IdObra == obraId);
     }
 
-    public async Task<List<AlbanilesXObra>> GetAlbanilesXObraByObraId(Guid obraId)
+    public Task<AlbanilesXObra> PostAlbanilXObra(AlbanilesXObra albanilXObra)
     {
-        var albanilesXObra = await _contextDb.AlbanilesXObras
-            .FromSql($"SELECT * FROM [AlbanilesXObra] WHERE IdObra = {obraId}")
+        var axo =  _contextDb.AlbanilesXObra.Add(albanilXObra);
+        _contextDb.SaveChanges();
+        return Task.FromResult(axo.Entity);
+    }
+
+    public async Task<List<AlbanilesXObra>> GetAlbanilesXObra(Guid obraId)
+    {
+        var axo = await _contextDb.AlbanilesXObra.Where(i => i.IdObra == obraId).ToListAsync();
+        return axo;
+    }
+
+    public Task<Albanile> PostAlbanil(Albanile albanile)
+    {
+        var albanil = _contextDb.Albanile.Add(albanile);
+        _contextDb.SaveChanges();
+        return Task.FromResult(albanil.Entity);
+    }
+
+    public async Task<Albanile?> GetAlbanilByDni(string dni)
+    {
+        var albanil = await _contextDb.Albanile.FirstOrDefaultAsync(a => a.Dni == dni);
+        return albanil;
+    }
+
+    public async Task<List<Albanile?>> GetAlbaniles(Guid id)
+    {
+        var albanilesGuid = await _contextDb.AlbanilesXObra
+            .Where(axo => axo.IdObra == id)
+            .Select(axo => axo.IdAlbanil)
             .ToListAsync();
 
-        if (albanilesXObra != null)
-        {
-            return albanilesXObra;
-        }
-
-        throw new Exception("No masons were found for this job.");
-    }
-
-    public async Task<List<AlbanilesXObra>> GetAll()
-    {
-        var albanilesXObra = await _contextDb.AlbanilesXObras.ToListAsync();
-
-        if (albanilesXObra != null)
-        {
-            return albanilesXObra;
-        }
-
-        throw new Exception("Albaniles not found ");
+        var albaniles = await _contextDb.Albanile.Where(a => !albanilesGuid.Contains(a.Id)).ToListAsync();
+        return albaniles;
     }
 }

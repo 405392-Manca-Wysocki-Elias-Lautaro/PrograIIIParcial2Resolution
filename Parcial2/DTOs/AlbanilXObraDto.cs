@@ -4,7 +4,9 @@ namespace Parcial2.DTOs;
 
 public class AlbanilXObraDto
 {
-    public Albanile Albanile { get; set; }
-    public Obra Obra { get; set; }
-
+    public Guid Id { get; set; }
+    public Guid AlbanilId { get; set; }
+    public Guid ObraId { get; set; }
+    public DateTime? FechaAlta { get; set; }
+    public String TareaARealizar { get; set; }
 }

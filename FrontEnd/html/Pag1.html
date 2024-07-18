@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de obras activas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body class='bg-dark'>
+
+  <nav class=" pt-4 pb-4 bg-dark sticky-top">
+    <ul class="nav nav-tabs ps-4">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="Pag1.html">Página 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="Pag2.html">Página 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="Pag3.html">Página 3</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="container text-center pt-5">
+    <h1 class='text-bg-dark'>Obras Activas</h1>
+    <table class='table '>
+      <thead>
+        <tr class='text-bg-dark'>
+          <th>Nombre</th>
+          <th>Datos Varios</th>
+          <th>Tipo Obra</th>
+          <th>Cantidad Albañiles</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <script src='../js/pag1.js'></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      listObras();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -12,8 +12,8 @@ public class ContextDb : DbContext
     
         public DbSet<Obra> Obra { get; set; }
         public DbSet<TiposObra> TiposObras { get; set; }
-        public DbSet<Albanile> Albaniles { get; set; }
-        public DbSet<AlbanilesXObra> AlbanilesXObras { get; set; }
+        public DbSet<Albanile> Albanile { get; set; }
+        public DbSet<AlbanilesXObra> AlbanilesXObra { get; set; }
 
 
 }
